@@ -19,10 +19,12 @@ model User {
 }
 
 model Post {
-  id       String  @id @default(cuid())
-  title    String  @default("")
-  author   User?   @relation("Post_author", fields: [authorId], references: [id])
-  authorId String? @map("author")
+  id          String    @id @default(cuid())
+  title       String    @default("")
+  author      User?     @relation("Post_author", fields: [authorId], references: [id])
+  authorId    String?   @map("author")
+  publishedAt DateTime?
+  status      String?   @default("draft")
 
   @@index([authorId])
 }
