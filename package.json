@@ -1,0 +1,10 @@
+{
+  "name": "keystone-learning",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@keystone-6/core": "^1.0.1",
+    "typescript": "^4.6.2"
+  }
+}
