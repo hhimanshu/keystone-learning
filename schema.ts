@@ -1,5 +1,5 @@
 import {list} from "@keystone-6/core";
-import {relationship, select, text, timestamp} from "@keystone-6/core/fields";
+import {password, relationship, select, text, timestamp} from "@keystone-6/core/fields";
 
 export const lists = {
     User: list({
@@ -8,8 +8,9 @@ export const lists = {
             email: text({validation: {isRequired: true}, isIndexed: "unique"}),
             posts: relationship({
                 ref: 'Post.author', many: true
-            })
-        }
+            }),
+            password: password({validation: {isRequired: true}}),
+        },
     }),
     Post: list({
         fields: {
@@ -21,7 +22,7 @@ export const lists = {
                     cardFields: ["name", "email"],
                     inlineEdit: {fields: ["name", "email"]},
                     linkToItem: true,
-                    inlineCreate: {fields: ["name", "email"]}
+                    inlineCreate: {fields: ["name", "email", "password"]}
                 }
             }),
             publishedAt: timestamp(),
