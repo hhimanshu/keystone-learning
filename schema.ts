@@ -1,5 +1,6 @@
 import {list} from "@keystone-6/core";
 import {password, relationship, select, text, timestamp} from "@keystone-6/core/fields";
+import {document} from '@keystone-6/fields-document';
 
 export const lists = {
     User: list({
@@ -33,6 +34,19 @@ export const lists = {
                 ],
                 defaultValue: 'draft',
                 ui: {displayMode: "segmented-control"}
+            }),
+            content: document({
+                formatting: true,
+                dividers: true,
+                links: true,
+                layouts: [
+                    [1],
+                    [1, 2],
+                    [1, 2, 1],
+                    [1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1, 1],
+                ]
             })
         }
     })
