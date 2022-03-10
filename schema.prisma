@@ -26,6 +26,7 @@ model Post {
   authorId    String?   @map("author")
   publishedAt DateTime?
   status      String?   @default("draft")
+  content     String    @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
 
   @@index([authorId])
 }
